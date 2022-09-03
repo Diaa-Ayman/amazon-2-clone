@@ -57,7 +57,7 @@ function Header() {
             <Bars3Icon className="h-5 w-5 text-white" />
             <span className="font-bold">All</span>
           </li>
-          <li className={bottomNavLinksClass}>Todays'Deals</li>
+          <li className={bottomNavLinksClass}>Todays&apos;Deals</li>
           <li className={bottomNavLinksClass}>Customr Service</li>
           <li className={bottomNavLinksClass}>Registry</li>
           <li className={bottomNavLinksClass}>Gift Cards</li>
