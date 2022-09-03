@@ -15,9 +15,9 @@ function Product({ product }) {
   }, []);
   return (
     <div className="flex flex-col space-y-2 p-2 m-4 font-semibold z-30 bg-white relative">
-      <span className="text-xs font-bold text-gray-500 italic right-0 top-0 absolute mr-2">
+      {/* <span className=" capitalize text-xs font-bold text-gray-500 italic right-0 top-0 absolute mr-2">
         {category}
-      </span>
+      </span> */}
       <div className="text-center">
         <Image
           src={image}
