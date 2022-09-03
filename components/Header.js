@@ -27,12 +27,12 @@ function Header() {
         </div>
         <div className=" text-white flex flex-col w-28 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
           <span>Hello, Sign in</span>
-          <span className="font-semibold">Account & Lists</span>
+          <span className="font-semibold">Account &amp; Lists</span>
         </div>
 
         <div className="text-white flex flex-col w-20 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
           <span>Returns</span>
-          <span className="font-bold">& Orders</span>
+          <span className="font-bold">&amp; Orders</span>
         </div>
         <div className="flex items-center text-white border border-gray-900 hover:border-white p-1 cursor-pointer">
           <div className="">
