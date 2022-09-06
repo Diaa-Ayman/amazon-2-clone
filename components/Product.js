@@ -1,23 +1,38 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { CartActions } from "../store/cart-slice";
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 function Product({ product }) {
   const { id, title, image, category, price, description } = product;
+  const PRICE = price.toFixed(2);
   const [rating, setRating] = useState();
-
+  const dispatch = useDispatch();
   useEffect(() => {
     setRating(
       Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
     );
   }, []);
+
+  const addToCartHandler = () => {
+    dispatch(
+      CartActions.addItemToCart({
+        id,
+        title,
+        image,
+        category,
+        price: PRICE,
+        description,
+      })
+    );
+  };
   return (
-    <div className="flex flex-col space-y-2 p-2 m-4 font-semibold z-30 bg-white relative">
-      {/* <span className=" capitalize text-xs font-bold text-gray-500 italic right-0 top-0 absolute mr-2">
+    <div className="flex flex-col space-y-3 px-2 py-4 m-4 font-semibold z-30 bg-white relative rounded-md shadow-md">
+      <span className=" capitalize text-xs font-bold text-gray-500 italic right-0 top-0 absolute mr-2 mb-2">
         {category}
-      </span> */}
+      </span>
       <div className="text-center">
         <Image
           src={image}
@@ -36,8 +51,10 @@ function Product({ product }) {
           ))}
       </div>
       <span className="text-xs line-clamp-2 my-2">{description}</span>
-      <span className="font-bold">${price}</span>
-      <button className="mt-auto button">Add To Cart</button>
+      <span className="font-bold">${PRICE}</span>
+      <button className="mt-auto button mx-4" onClick={addToCartHandler}>
+        Add To Cart
+      </button>
     </div>
   );
 }

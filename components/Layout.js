@@ -1,13 +1,14 @@
 import React from "react";
 import Banner from "./Banner";
+import Footer from "./Footer";
 import Header from "./Header";
 
 function Layout(props) {
   return (
-    <div>
+    <div className={`classes ${props.className} bg-gray-100`}>
       <Header />
-      <Banner />
       <main>{props.children}</main>
+      <Footer />
     </div>
   );
 }

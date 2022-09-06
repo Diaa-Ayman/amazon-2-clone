@@ -2,12 +2,17 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import ProductFeed from "../components/ProductFeed";
 import Footer from "../components/Footer";
+import Banner from "../components/Banner";
 export default function Home({ products }) {
   return (
     <div className="bg-gray-100">
-      <Layout></Layout>
-      <ProductFeed products={products} />
-      <Footer />
+      <Head>
+        <title>amazon-2</title>
+      </Head>
+      <Layout>
+        <Banner />
+        <ProductFeed products={products} />
+      </Layout>
     </div>
   );
 }
