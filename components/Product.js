@@ -7,6 +7,7 @@ const MAX_RATING = 5;
 const MIN_RATING = 1;
 function Product({ product }) {
   const { id, title, image, category, price, description } = product;
+  const [added, setAdded] = useState(false);
   const PRICE = price.toFixed(2);
   const [rating, setRating] = useState();
   const dispatch = useDispatch();
@@ -27,6 +28,10 @@ function Product({ product }) {
         description,
       })
     );
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+    }, 2000);
   };
   return (
     <div className="flex flex-col space-y-3 px-2 py-4 m-4 font-semibold z-30 bg-white relative rounded-md shadow-md">
@@ -53,7 +58,11 @@ function Product({ product }) {
       <span className="text-xs line-clamp-2 my-2">{description}</span>
       <span className="font-bold">${PRICE}</span>
       <button className="mt-auto button mx-4" onClick={addToCartHandler}>
-        Add To Cart
+        {added ? (
+          <span className="text-red-500 animate-pulse">Added To Cart</span>
+        ) : (
+          <span>Add To Cart</span>
+        )}
       </button>
     </div>
   );

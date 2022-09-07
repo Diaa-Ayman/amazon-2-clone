@@ -29,10 +29,12 @@ function Header() {
           <input className="h-full rounded-l-md outline-none flex-1 pl-1" />
           <MagnifyingGlassIcon className="text-gray-900 h-10 w-10 p-2 cursor-pointer" />
         </div>
-        <div className=" text-white flex flex-col w-28 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
-          <span>Hello, Sign in</span>
-          <span className="font-semibold">Account &amp; Lists</span>
-        </div>
+        <Link href="/signin">
+          <div className=" text-white flex flex-col w-28 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
+            <span>Hello, Sign in</span>
+            <span className="font-semibold">Account &amp; Lists</span>
+          </div>
+        </Link>
 
         <div className="text-white flex flex-col w-20 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
           <span>Returns</span>
