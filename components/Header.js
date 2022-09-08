@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -7,7 +7,9 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-function Header() {
+import { auth } from "../firebase";
+function Header(props) {
+  const user = useSelector((state) => state.auth.user);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   return (
     <div className="">
@@ -29,9 +31,14 @@ function Header() {
           <input className="h-full rounded-l-md outline-none flex-1 pl-1" />
           <MagnifyingGlassIcon className="text-gray-900 h-10 w-10 p-2 cursor-pointer" />
         </div>
-        <Link href="/signin">
-          <div className=" text-white flex flex-col w-28 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer">
-            <span>Hello, Sign in</span>
+        <Link href={!user ? "/signin" : "/"}>
+          <div
+            onClick={() => {
+              auth.signOut();
+            }}
+            className=" text-white flex flex-col w-28 h-full text-xs border border-gray-900 hover:border-white p-2 cursor-pointer"
+          >
+            <span>Hello, {!user ? "signin" : user.displayName}</span>
             <span className="font-semibold">Account &amp; Lists</span>
           </div>
         </Link>
@@ -59,7 +66,7 @@ function Header() {
 
       {/* ALL LIST ITEMS SHOULD BE LINKS and may be dynamic */}
 
-      <div className="bg-gray-800 py-1 px-4 text-white font-semibold">
+      <div className="bg-gray-800 py-1 px-4 text-white md:font-semibold ">
         <ul className="list-none flex  md:space-x-1 text-xs md:text-sm">
           <li className="btnLink flex">
             <Bars3Icon className="h-5 w-5 text-white" />

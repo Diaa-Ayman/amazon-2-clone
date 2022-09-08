@@ -30,11 +30,17 @@ function Cart() {
               />
             ))
           ) : (
-            <span className="grid place-items-center font-bold text-xl mt-20">
-              You have No cart items
-              <Link href="/">
-                <span className="button cursor-pointer mt-4 px-8">
-                  Go to Add
+            <span className="grid place-items-center font-semibold text-xl md:mt-20 py-4 md:py-2">
+              Your cart is Empty!
+              <Link href="/signin">
+                <span className="button text-xs font-semibold cursor-pointer mt-4 px-8">
+                  Sign in to your account
+                </span>
+              </Link>
+              <span className="text-xs font-bold mt-2 text-gray-900">Or</span>
+              <Link href="/signup">
+                <span className="button text-xs font-semibold cursor-pointer mt-2 px-8">
+                  Sign up
                 </span>
               </Link>
             </span>

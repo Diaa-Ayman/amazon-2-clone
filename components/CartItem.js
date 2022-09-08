@@ -35,11 +35,11 @@ function CartItem({
 
   return (
     <div className="flex flex-col space-y-4 md:flex-row items-center justify-between border-b border-gray-200 m-4 p-2 pb-4">
-      <div className="flex flex-col md:flex-row space-x-3">
-        <div className="grid place-items-center md:flex mb-4 md:mb-0">
-          <img src={image} className="w-40 h-48 object-contain" />
-        </div>
-        <div className="flex space-y-2 flex-col">
+      <div className="grid md:grid-cols-4 space-x-3">
+        {/* <div className="grid place-items-center md:flex mb-4 md:mb-0"> */}
+        <Image src={image} height={200} width={200} objectFit="contain" />
+        {/* </div> */}
+        <div className="flex md:col-span-3 space-y-2 flex-col mt-4 md:mt-0">
           <span className="font-semibold">{title}</span>
           <div className="flex space-x-1">
             <StarIcon className="h-5 w-5 text-orange-500" />
