@@ -31,7 +31,7 @@ function Cart() {
             ))
           ) : (
             <span className="grid place-items-center font-semibold text-xl md:mt-20 py-4 md:py-2">
-              Your cart is Empty!
+              Your Cart is Empty!
               <Link href="/signin">
                 <span className="button text-xs font-semibold cursor-pointer mt-4 px-8">
                   Sign in to your account
